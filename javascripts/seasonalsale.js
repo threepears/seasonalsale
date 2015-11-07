@@ -1,5 +1,5 @@
-define(["jquery", "getProductInfo"],
-	function($, getProductInfo) {
+define(["jquery", "getProductInfo", "matchProductCategories", "populateDom"],
+	function($, getProductInfo, matchCategories, populateDom) {
 
 		var spring = $("#spring");
 		var summer = $("#summer");
@@ -7,12 +7,7 @@ define(["jquery", "getProductInfo"],
 		var winter = $("#winter");
 		var content = $("#content");
 
-		function populateDom(data) {
-			require(["hbs!../templates/product"], function(dataTemplate) {
-				content.append(dataTemplate(data));
-			});
-		}
-
-		getProductInfo.productInfo();
+		getProductInfo.categoriesInfo(populateDom.populateDom);
+		getProductInfo.productInfo(matchCategories.getCategory);
 
 });
