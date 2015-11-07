@@ -13,6 +13,6 @@ define(["jquery", "getProductInfo"],
 			});
 		}
 
-		getProductInfo.productInfo(populateDom);
+		getProductInfo.productInfo();
 
 });
